@@ -154,5 +154,11 @@ def simple_sort(data: List[int]) -> List[list]:
 
     """
     pass
-
-
+    lenth=len(data)
+    for i in range(lenth):
+        lowest = i
+        for j in range(i + 1, lenth):
+            if data[j] < data[lowest]:
+                lowest = j
+        data[i], data[lowest] = data[lowest], data[i]
+    return data
