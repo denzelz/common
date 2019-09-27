@@ -17,7 +17,7 @@ def is_two_object_has_same_value(first: Any, second: Any) -> bool:
     In another case should return False
     """
     pass
-    return True if first == second else False
+    return first == second
 
 
 
@@ -36,7 +36,7 @@ def is_two_objects_is_the_same_objects(first: Any, second: Any) -> bool:
     In another case should return False
     """
     pass
-    return True if id(first) == id(second) else False
+    return True if first is second else False
 
 def multiple_ints(first_value: int, second_value: int) -> int:
     """
