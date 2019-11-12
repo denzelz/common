@@ -1,13 +1,8 @@
 from oop.homework import Cat, Wall
 import unittest
 
+
 class TestCat(unittest.TestCase):
-
-
-    # def test_set_average_speed(self):
-    #     cat_1 = Cat(1)
-    #     cat_1._set_average_speed(50)
-    #     self.assertEqual(50, cat_1.average_speed)
 
     def test_saturation_level(self):
         self.assertEqual(Cat.saturation_level, 50)
@@ -29,7 +24,7 @@ class TestCat(unittest.TestCase):
 
     def test_reduce_saturation_level_limit(self):
         cat_1 = Cat(1)
-        cat_1._reduce_saturation_level(100)
+        cat_1._reduce_saturation_level(500)
         self.assertEqual(cat_1.saturation_level, 0)
 
     def test_eat_fodder(self):
@@ -58,12 +53,6 @@ class TestCat(unittest.TestCase):
         cat_2.run(7)
         self.assertEqual(cat_1.saturation_level, 45)
         self.assertEqual(cat_2.saturation_level, 35)
-
-    # def test_get_saturation_level(self):
-    #     cat_1 = Cat(6)
-    #     cat_1.run(4)
-    #     cat_1.eat('fodder')
-    #     self.assertEqual(cat_1.saturation_level, 55)
 
 
 class TestWall(unittest.TestCase):
