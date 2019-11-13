@@ -1,6 +1,6 @@
 import math
 import unittest
-from tests.homework import Rectangle
+from homework import Rectangle
 
 
 class TestRectangle(unittest.TestCase):
@@ -56,6 +56,7 @@ class TestRectangle(unittest.TestCase):
             with self.assertRaises(ValueError):
                 self.assertEqual(self.rectangle_1.get_radius_of_inscribed_circle(),
                                  self.rectangle_1.get_rectangle_diagonal() / (2 * math.sqrt(2)))
+
 
 if __name__ == '__main__':
     unittest.main()

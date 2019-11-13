@@ -37,26 +37,23 @@ class Cat:
     * Implement get_average_speed and return average_speed
 
     """
-    saturation_level = 50
 
     def __init__(self, age):
         self.age = age
         self.average_speed = self._set_average_speed()
+        self.saturation_level = 50
 
     def eat(self, product):
         food = {'fodder': 10, 'apple': 5, 'milk': 2}
-        if product in food.keys():
-            self._increase_saturation_level(food.get(product))
+        self._increase_saturation_level(food.get(product, 0))
 
     def _reduce_saturation_level(self, value):
-        self.saturation_level = self.saturation_level - value
-        if self.saturation_level < 0:
-            self.saturation_level = 0
+        self.saturation_level -= value
+        self.saturation_level = max(0, self.saturation_level)
 
     def _increase_saturation_level(self, value):
-        self.saturation_level = self.saturation_level + value
-        if self.saturation_level > 100:
-            self.saturation_level = 100
+        self.saturation_level += value
+        self.saturation_level = min(100, self.saturation_level)
 
     def _set_average_speed(self):
         if self.age in range(0, 8):
@@ -107,8 +104,7 @@ class Cheetah(Cat):
     """
     def eat(self, product):
         food = {"gazelle": 30, "rabbit": 15}
-        if product in food.keys():
-            self._increase_saturation_level(food.get(product))
+        self._increase_saturation_level(food.get(product, 0))
 
     def _set_average_speed(self):
         if self.age in range(6):
