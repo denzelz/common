@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content%}
+<title>{{ title }}</title>
+<h1>{{ title }}</h1>
+    <img src="{{url_for('static', filename=item_img)}}" usemap="#image-map" width="360px" height="400px">
+    <p class="text">{{ text }}</p>
+    <p></p>
+    <p>Words counter: {{ count }}</p>
+{% endblock %}
