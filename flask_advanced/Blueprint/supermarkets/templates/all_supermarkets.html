@@ -1,0 +1,62 @@
+
+{% extends "home.html" %}
+
+{% block content %}
+<style>
+    #product{
+        text-align: center;
+    }
+
+    *:focus {
+        outline: 0;
+    }
+</style>
+<body>
+<div id="product">
+        <h1>Supermarkets list</h1>
+    <form action="" method="POST" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+    <p>
+        {{ form.location.label }}<br>
+        {{ form.location (size=32) }}
+        {% for error in form.location.errors %}
+   <span style="color: red;">Invalid value</span>
+        {% endfor %}
+    </p>
+    <p><a href="{{ url_for('supermarkets.location_filter')}}">{{ form.submit() }}</a></p>
+
+    </form>
+{%if not supermarkets_list and not location_list%}
+    <h5>There are no supermarkets in the list. Please add them</h5>
+{%endif%}
+<ol>
+    {% for item in supermarkets_list %}
+    {% if session[item.id] == 'True' %}
+    <li><a style="pointer-events: none; opacity: 0.75;" href="">{{ item.name }}</a></li>
+    {% else %}
+  <li><a href="{{ url_for('supermarkets.get_supermarket', supermarket_id = item.id)}}">{{ item.name }}</a> </li>
+    {% endif%}
+    {% endfor %}
+</ol>
+    <ol>
+    {% for item in location_list %}
+    {% if session[item.id] == 'True' %}
+    <li><a style="pointer-events: none; opacity: 0.75;" href="">{{ item.name }}</a></li>
+    {% else %}
+  <li><a href="{{ url_for('supermarkets.get_supermarket', supermarket_id = item.id)}}">{{ item.name }}</a> </li>
+    {% endif%}
+    {% endfor %}
+    </ol>
+</body>
+         <a href="{{ url_for('supermarkets.add_supermarkets') }}" class="btn btn-secondary">Add New Supermarkets</a>
+    </div>
+</html>
+{% endblock %}
+
+
+
+
+
+
+
+

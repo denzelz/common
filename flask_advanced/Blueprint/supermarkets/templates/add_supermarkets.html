@@ -1,0 +1,39 @@
+
+{% extends "home.html" %}
+
+{% block content %}
+<style>
+    #product{
+        text-align: center;
+    }
+
+    *:focus {
+        outline: 0;
+    }
+</style>
+<body>
+<div id="product">
+    <h1>Add Supermarket</h1>
+    <form action="" method="POST" enctype="multipart/form-data">
+         {{ form.hidden_tag() }}
+        <p>
+            {{ form.name.label }}<br>
+            {{ form.name(size=32) }}
+        </p>
+        <p>
+            {{ form.location.label }}<br>
+            {{ form.location(size=32) }}
+        </p>
+        <p>
+            {{ form.sup_img.label }}<br>
+            {{ form.sup_img() }}
+            {% for error in form.sup_img.errors %}<br>
+            <span style="color: red;">Invalid format, only '.jpg' and '.png' allowed</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}<br>
+        </p>
+
+    </form>
+</div>
+{% endblock %}

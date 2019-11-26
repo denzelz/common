@@ -1,0 +1,20 @@
+{% extends "home.html" %}
+{% block content %}
+
+<style>
+    #images{
+        text-align: center;
+    }
+
+    *:focus {
+        outline: 0;
+    }
+
+</style>
+<body>
+ <a href="{{ url_for('supermarkets.add_supermarkets') }}" class="btn btn-secondary btn-sm">Add another supermarket</a>
+<div id="images">
+    <h1>Supermarket name: {{name}}</h1>
+    <img src="{{url_for('supermarkets.static', filename=sup_img)}}"  width="25%" height="25%">
+            <h2>Supermarket location: {{location}}</h2>
+{% endblock %}
