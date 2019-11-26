@@ -62,4 +62,3 @@ def image_upload():
         img.save(path)
         return secure_filename(img.filename)
     return 'no-image-icon.png'
-

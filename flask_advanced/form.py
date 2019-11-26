@@ -29,4 +29,3 @@ class SupermarketForm(FlaskForm):
 class SupermarketFilter(FlaskForm):
     location = StringField('Find supermarkets for location', validators=[])
     submit = SubmitField('Find')
-
